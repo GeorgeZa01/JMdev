@@ -1,42 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- Mobile/Standalone behavior -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" href="JM.dev-logo.svg" type="image/svg+xml">
+    <link rel="icon" href="http://127.0.0.1:5500/JM.dev-logo.svg" type="image/svg+xml">
     <title>JM.dev - Strategic Digital Architect</title>
-    <meta name="description"
-        content="JM.dev — Independent Digital Architect specializing in product architecture, full-stack development, performance optimization, and secure, scalable web solutions. Available for remote and hybrid engagements.">
+    <meta name="description" content="JM.dev — Independent Digital Architect specializing in product architecture, full-stack development, performance optimization, and secure, scalable web solutions. Available for remote and hybrid engagements.">
     <meta name="author" content="JM.dev">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://jm.dev/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="JM.dev - Strategic Digital Architect">
-    <meta property="og:description"
-        content="Independent Digital Architect focused on performant, secure, and scalable product experiences.">
-    <meta property="og:image"
-        content="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQo5DTrrwD4tBSwEl2i-Vat8gGVW17ihzo7CVrPGDc5skdeGObw">
+    <meta property="og:description" content="Independent Digital Architect focused on performant, secure, and scalable product experiences.">
+    <meta property="og:image" content="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQo5DTrrwD4tBSwEl2i-Vat8gGVW17ihzo7CVrPGDc5skdeGObw">
     <meta property="og:image:alt" content="JM.dev — Digital Architect portfolio hero image">
     <meta property="og:url" content="https://jm.dev/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="JM.dev - Strategic Digital Architect">
-    <meta name="twitter:description"
-        content="Independent Digital Architect focused on performant, secure, and scalable product experiences.">
+    <meta name="twitter:description" content="Independent Digital Architect focused on performant, secure, and scalable product experiences.">
     <meta name="theme-color" content="#0f172a">
-    <meta name="keywords"
-        content="Digital Architect, product architecture, full-stack development, performance optimization, web security, responsive web design, JM.dev">
+    <meta name="keywords" content="Digital Architect, product architecture, full-stack development, performance optimization, web security, responsive web design, JM.dev">
     <meta property="og:site_name" content="JM.dev">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:creator" content="@jmdev">
     <link rel="alternate" hreflang="en" href="https://jm.dev/">
     <meta name="msapplication-TileColor" content="#0f172a">
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="http://127.0.0.1:5500/sitemap.xml">
+    <script src="./JM.dev - Strategic Digital Architect_files/saved_resource"></script>
     <style>
         /* --- GLOBAL STYLES & FONT --- */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -85,7 +79,20 @@
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 1.5rem;
+        }
+
+        /* Mobile container optimization */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.75rem;
+            }
         }
 
         /* --- GLASSMORHISM & OPACITY CONTROLS --- */
@@ -119,6 +126,13 @@
             border-color: var(--color-accent);
         }
 
+        /* Disable hover transform on touch devices to prevent jank */
+        @media (hover: none) and (pointer: coarse) {
+            .card-interaction:active {
+                transform: translateY(-4px);
+            }
+        }
+
         .btn-primary {
             background-color: var(--color-accent);
             transition: all 0.3s ease-in-out;
@@ -130,6 +144,14 @@
             /* Blue 600 */
             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
             transform: translateY(-2px);
+        }
+
+        /* Mobile button touch feedback */
+        @media (hover: none) and (pointer: coarse) {
+            .btn-primary:active {
+                transform: translateY(0);
+                box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+            }
         }
 
         /* Utility mappings for custom/tailwind-like classes used in markup */
@@ -217,7 +239,7 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 2rem;
             align-items: start;
         }
@@ -262,13 +284,14 @@
             font-weight: 600;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 900px) {
             .footer-grid {
-                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-columns: 1fr;
+                text-align: left;
             }
-            
-            .container {
-                padding: 0 1.5rem;
+
+            .social-list {
+                justify-content: flex-start;
             }
         }
 
@@ -276,7 +299,7 @@
         .expertise-grid {
             display: grid;
             gap: 1.25rem;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(4, 1fr);
         }
 
         .skill-card {
@@ -302,15 +325,15 @@
             border-radius: 8px;
         }
 
-        @media (min-width: 640px) {
+        @media (max-width: 1024px) {
             .expertise-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (min-width: 1024px) {
+        @media (max-width: 640px) {
             .expertise-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: 1fr;
             }
         }
 
@@ -361,11 +384,10 @@
         .mobile-toggle {
             background: transparent;
             border: none;
-            padding: 0.5rem;
+            padding: 0.25rem;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
         }
 
         .mobile-nav {
@@ -375,7 +397,7 @@
             right: 0;
             top: 100%;
             background: linear-gradient(180deg, rgba(2, 6, 23, 0.98), rgba(15, 23, 42, 0.98));
-            padding: 1rem;
+            padding: 1rem 1.5rem;
             z-index: 60;
             box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
             transform-origin: top;
@@ -392,11 +414,10 @@
 
         .mobile-nav a {
             display: block;
-            padding: 1rem 0.75rem;
+            padding: 0.75rem 0.5rem;
             color: var(--color-text);
             text-decoration: none;
             border-radius: 0.5rem;
-            font-size: 1.1rem;
         }
 
         .mobile-nav a:hover,
@@ -509,7 +530,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr auto;
             gap: 1.5rem;
             align-items: center;
         }
@@ -552,10 +573,6 @@
             font-size: 0.875rem;
             transition: all 0.3s ease;
             white-space: nowrap;
-            min-height: 44px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .cookie-btn-accept {
@@ -581,14 +598,22 @@
             color: #2563eb;
         }
 
-        @media (min-width: 768px) {
-            .cookie-container {
-                grid-template-columns: 1fr auto;
-                gap: 1.5rem;
+        @media (max-width: 768px) {
+            .cookie-banner {
+                padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
             }
-            
+
+            .cookie-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
             .cookie-actions {
-                width: auto;
+                width: 100%;
+            }
+
+            .cookie-btn {
+                flex: 1;
             }
         }
 
@@ -601,7 +626,9 @@
             align-items: center;
             justify-content: center;
             z-index: 1200;
-            padding: 1rem;
+            padding: 1.5rem;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .modal-overlay.hidden { display: none; }
@@ -612,16 +639,90 @@
             max-width: 920px;
             width: 100%;
             max-height: 90vh;
-            overflow: auto;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             border-radius: 12px;
             box-shadow: 0 20px 60px rgba(2,6,23,0.6);
             border: 1px solid rgba(255,255,255,0.03);
             padding: 1.25rem;
         }
 
-        .modal-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-        .modal-close { background:transparent; border:none; color:var(--color-text); font-weight:700; padding:0.5rem; border-radius:8px; }
+        /* Mobile modal optimization */
+        @media (max-width: 768px) {
+            .modal-overlay {
+                padding: 1rem;
+            }
+
+            .modal {
+                max-height: calc(100vh - 2rem);
+                border-radius: 8px;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-overlay {
+                padding: 0.75rem;
+            }
+
+            .modal {
+                max-height: calc(100vh - 1.5rem);
+                padding: 0.75rem;
+            }
+        }
+
+        .modal-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap: wrap; }
+        .modal-close { background:transparent; border:none; color:var(--color-text); font-weight:700; padding:0.5rem; border-radius:8px; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
         .modal-close:focus { outline:3px solid rgba(59,130,246,0.18); }
+
+        .modal-title { margin: 0; }
+        .modal-content-area { margin-top: 1rem; }
+
+        /* Learn more link button (accessible alternative to onclick) */
+        .learn-more-link {
+            background: transparent;
+            border: none;
+            color: var(--color-accent);
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 500;
+            padding: 0;
+        }
+
+        /* Mobile section padding & spacing */
+        section {
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+        }
+
+        /* Utility: safe responsive text sizes */
+        h1, h2, h3 {
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Grid/Flex mobile utilities */
+        .grid, [class*="grid-"] {
+            overflow: hidden;
+        }
+
+        /* Ensure flex items don't overflow on mobile */
+        [class*="flex"] {
+            min-width: 0;
+        }
 
         /* Mobile / touch target improvements */
         header {
@@ -630,6 +731,8 @@
         }
 
         .btn-primary,
+        .cookie-btn,
+        .mobile-toggle,
         .package-select,
         .contact-cta {
             min-height: 44px;
@@ -641,69 +744,9 @@
             touch-action: manipulation;
         }
 
-        /* Responsive typography */
-        .hero-heading {
-            font-size: 2.5rem;
-            line-height: 1.1;
-        }
-        
-        .section-heading {
-            font-size: 2rem;
-            line-height: 1.2;
-        }
-        
-        @media (min-width: 640px) {
-            .hero-heading {
-                font-size: 3.5rem;
-            }
-            
-            .section-heading {
-                font-size: 2.5rem;
-            }
-        }
-        
-        @media (min-width: 768px) {
-            .hero-heading {
-                font-size: 4.5rem;
-            }
-            
-            .section-heading {
-                font-size: 3rem;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .hero-heading {
-                font-size: 5rem;
-            }
-            
-            .section-heading {
-                font-size: 3.5rem;
-            }
-        }
-
-        /* Pricing grid improvements */
-        .pricing-grid {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-        
-        @media (min-width: 1024px) {
-            .pricing-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        /* Service grid improvements */
-        .services-grid {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-        
-        @media (min-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .mobile-toggle {
+            padding: 0.5rem;
+            border-radius: 8px;
         }
     </style>
     <script type="application/ld+json">
@@ -739,50 +782,83 @@
             ]
         }
         </script>
-</head>
+<!-- Code injected by Five-server -->
+  <script async="" data-id="five-server" data-file="c:\Users\jemai\OneDrive\Desktop\JM.dev\Site\jm.dev\index.html" type="application/javascript" src="./JM.dev - Strategic Digital Architect_files/fiveserver.js.download"></script>
+  <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.relative{position:relative}.sticky{position:sticky}.top-0{top:0px}.z-10{z-index:10}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.ml-2{margin-left:0.5rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-5{height:1.25rem}.h-6{height:1.5rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.flex-grow{flex-grow:1}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-between{justify-content:space-between}.gap-10{gap:2.5rem}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81 / var(--tw-border-opacity, 1))}.border-gray-800{--tw-border-opacity:1;border-color:rgb(31 41 55 / var(--tw-border-opacity, 1))}.bg-blue-900\/50{background-color:rgb(30 58 138 / 0.5)}.bg-transparent{background-color:transparent}.p-3{padding:0.75rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.pb-1{padding-bottom:0.25rem}.pb-2{padding-bottom:0.5rem}.pb-3{padding-bottom:0.75rem}.text-left{text-align:left}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-light{font-weight:300}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-tight{line-height:1.25}.tracking-tighter{letter-spacing:-0.05em}.tracking-wider{letter-spacing:0.05em}.text-blue-300{--tw-text-opacity:1;color:rgb(147 197 253 / var(--tw-text-opacity, 1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}@media (min-width: 768px){.md\:col-span-2{grid-column:span 2 / span 2}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:p-12{padding:3rem}.md\:py-28{padding-top:7rem;padding-bottom:7rem}.md\:py-32{padding-top:8rem;padding-bottom:8rem}.md\:py-40{padding-top:10rem;padding-bottom:10rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-8xl{font-size:6rem;line-height:1}.md\:leading-snug{line-height:1.375}}@media (min-width: 1024px){.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}</style><style>      
+      /* Injected by five-server */
+      /*[data-highlight="true"] {
+        border: 1px rgb(90,170,255) solid !important;
+        background-color: rgba(155,215,255,0.5);
+        animation: fadeOutHighlight 1s forwards 0.5s;
+      }
+      img[data-highlight="true"] {
+        filter: sepia(100%) hue-rotate(180deg) saturate(200%);
+        animation: fadeOutHighlightIMG 0.5s forwards 0.5s;
+      }*/
+      @keyframes fadeOutHighlight {
+        from {background-color: rgba(155,215,255,0.5);}
+        to {background-color: rgba(155,215,255,0);}
+      }      
+      @keyframes fadeOutHighlightIMG {
+        0% {filter: sepia(100%) hue-rotate(180deg) saturate(200%);}
+        33% {filter: sepia(66%) hue-rotate(180deg) saturate(100%);}
+        50% {filter: sepia(50%) hue-rotate(90deg) saturate(50%);}
+        66% {filter: sepia(33%) hue-rotate(0deg) saturate(100%);}
+        100% {filter: sepia(0%) hue-rotate(0deg) saturate(100%);}
+      }
+      @keyframes fiveserverInfoPopup {
+        0%   {top:-40px;}
+        15%  {top:4px;}
+        85%  {top:4px;}
+        100% {top:-40px;}
+      }
+      /*smaller*/
+      @media (max-width: 640px) {
+        #fiveserver-info-wrapper {
+          max-width: 98%;
+        }
+        #fiveserver-info {
+          border-radius: 0px;
+        }      
+      }
+
+      </style></head>
 
 <body>
 
     <!-- Header & Navigation (Fixed & Subtle Glass) -->
     <header class="py-5 section-glass-bg sticky top-0 z-50 border-b border-gray-700">
         <div class="container flex justify-between items-center">
-            <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-wider">
+            <h1 class="text-3xl font-extrabold text-white tracking-wider">
                 JM.<span class="text-color-accent">dev</span>
             </h1>
-            <nav class="space-x-4 md:space-x-8 hidden lg:flex">
-                <a href="#about"
-                    class="text-gray-300 hover:text-color-accent font-medium transition duration-200 text-sm md:text-base">About</a>
-                <a href="#expertise"
-                    class="text-gray-300 hover:text-color-accent font-medium transition duration-200 text-sm md:text-base">Expertise</a>
-                <a href="#projects"
-                    class="text-gray-300 hover:text-color-accent font-medium transition duration-200 text-sm md:text-base">Portfolio</a>
-                <a href="#pricing"
-                    class="text-gray-300 hover:text-color-accent font-medium transition duration-200 text-sm md:text-base">Pricing</a>
-                <a href="#testimonials"
-                    class="text-gray-300 hover:text-color-accent font-medium transition duration-200 text-sm md:text-base">Testimonials</a>
-                <a href="#contact" class="px-4 py-2 md:px-6 md:py-2 rounded-full text-white btn-primary font-semibold text-sm md:text-base">
+            <nav class="space-x-8 hidden lg:flex">
+                <a href="http://127.0.0.1:5500/index.html#about" class="text-gray-300 hover:text-color-accent font-medium transition duration-200">About</a>
+                <a href="http://127.0.0.1:5500/index.html#expertise" class="text-gray-300 hover:text-color-accent font-medium transition duration-200">Expertise</a>
+                <a href="http://127.0.0.1:5500/index.html#projects" class="text-gray-300 hover:text-color-accent font-medium transition duration-200">Portfolio</a>
+                <a href="http://127.0.0.1:5500/index.html#pricing" class="text-gray-300 hover:text-color-accent font-medium transition duration-200">Pricing</a>
+                <a href="http://127.0.0.1:5500/index.html#testimonials" class="text-gray-300 hover:text-color-accent font-medium transition duration-200">Testimonials</a>
+                <a href="http://127.0.0.1:5500/index.html#contact" class="px-6 py-2 rounded-full text-white btn-primary font-semibold">
                     Engage Me
                 </a>
             </nav>
             <!-- Mobile Menu Toggle -->
             <div class="lg:hidden">
-                <button id="mobile-toggle" class="mobile-toggle" aria-controls="mobile-nav" aria-expanded="false"
-                    aria-label="Open navigation">
+                <button id="mobile-toggle" class="mobile-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation">
                     <svg class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                     </svg>
                 </button>
             </div>
             <!-- Mobile navigation (hidden on desktop) -->
             <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#expertise">Expertise</a></li>
-                    <li><a href="#projects">Portfolio</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact" class="btn-primary text-center" id="mobile-cta">Engage Me</a></li>
+                    <li><a href="http://127.0.0.1:5500/index.html#about">About</a></li>
+                    <li><a href="http://127.0.0.1:5500/index.html#expertise">Expertise</a></li>
+                    <li><a href="http://127.0.0.1:5500/index.html#projects">Portfolio</a></li>
+                    <li><a href="http://127.0.0.1:5500/index.html#pricing">Pricing</a></li>
+                    <li><a href="http://127.0.0.1:5500/index.html#testimonials">Testimonials</a></li>
+                    <li><a href="http://127.0.0.1:5500/index.html#contact" class="btn-primary" id="mobile-cta">Engage Me</a></li>
                 </ul>
             </nav>
         </div>
@@ -790,49 +866,47 @@
 
     <main>
         <!-- Hero Section: High-Impact & Defined Role -->
-        <section id="about" class="py-16 md:py-24 lg:py-40 text-center relative overflow-hidden section-glass-bg">
+        <section id="about" class="py-24 md:py-40 text-center relative overflow-hidden section-glass-bg">
             <div class="container z-10 relative">
-                <p class="text-base md:text-lg text-color-accent font-semibold mb-4 tracking-wider uppercase">
-                    Independent Digital Architect & Freelancer
+                <p class="text-lg text-color-accent font-semibold mb-4 tracking-wider uppercase">
+                    Independent Digital Architect &amp; Freelancer
                 </p>
-                <h2 class="hero-heading font-black tracking-tighter mb-6 leading-tight md:leading-snug">
+                <h2 class="text-5xl md:text-8xl font-black tracking-tighter mb-6 leading-tight md:leading-snug">
                     I Engineer <span class="text-color-accent">Digital Growth.</span> Not Just Code.
                 </h2>
 
-                <p class="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-4xl mx-auto mb-8 md:mb-12 font-light px-4">
+                <p class="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-12 font-light">
                     I operate as a highly specialized independent contractor, delivering personalized, full-stack
                     solutions without the agency overhead. This streamlined process ensures you work directly with the
                     expert, guaranteeing clear communication, dedicated focus, and maximum accountability for your
                     project's success.
                 </p>
 
-                <a href="https://jemaile-portfolio.netlify.app/" target="_blank"
-                    class="inline-flex items-center space-x-2 px-6 py-3 md:px-10 md:py-4 rounded-full text-base md:text-lg text-white btn-primary font-bold transition">
+                <a href="https://jemaile-portfolio.netlify.app/" target="_blank" class="inline-flex items-center space-x-2 px-10 py-4 rounded-full text-lg text-white btn-primary font-bold transition">
                     <span>View My Full Portfolio</span>
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                     </svg>
                 </a>
             </div>
         </section>
 
         <!-- Expertise Section: Core Capabilities -->
-        <section id="expertise" class="py-16 md:py-20 lg:py-28 border-t border-gray-700 section-glass-bg">
+        <section id="expertise" class="py-20 md:py-28 border-t border-gray-700 section-glass-bg">
             <div class="container">
-                <div class="text-center mb-8 md:mb-12 max-w-3xl mx-auto px-4">
+                <div class="text-center mb-12 max-w-3xl mx-auto">
                     <p class="text-sm text-color-accent font-semibold mb-2 tracking-wider uppercase">Core Capabilities
                     </p>
-                    <h3 class="section-heading font-extrabold text-white">Expertise</h3>
-                    <p class="text-gray-400 mt-4 text-base md:text-lg">End-to-end product delivery with emphasis on performance, security,
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-white">Expertise</h3>
+                    <p class="text-gray-400 mt-4">End-to-end product delivery with emphasis on performance, security,
                         and measurable outcomes. Below are areas I regularly lead and deliver.</p>
                 </div>
 
-                <div class="expertise-grid px-4">
+                <div class="expertise-grid">
                     <div class="skill-card card-interaction text-center">
                         <div class="skill-icon mx-auto text-color-accent">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zM13 21h8V11h-8v10zM13 3v6h8V3h-8z" />
+                                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zM13 21h8V11h-8v10zM13 3v6h8V3h-8z"></path>
                             </svg>
                         </div>
                         <h4>Product Architecture</h4>
@@ -843,7 +917,7 @@
                     <div class="skill-card card-interaction text-center">
                         <div class="skill-icon mx-auto text-color-accent">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 2l4 4h-3v7h-2V6H8l4-4zM4 10v10h16V10H4z" />
+                                <path d="M12 2l4 4h-3v7h-2V6H8l4-4zM4 10v10h16V10H4z"></path>
                             </svg>
                         </div>
                         <h4>Full-Stack Development</h4>
@@ -854,11 +928,10 @@
                     <div class="skill-card card-interaction text-center">
                         <div class="skill-icon mx-auto text-color-accent">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path
-                                    d="M12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9-9 4.03-9 9 4.03 9 9 9zm-1-13h2v6h-2V8zm0 8h2v2h-2v-2z" />
+                                <path d="M12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9-9 4.03-9 9 4.03 9 9 9zm-1-13h2v6h-2V8zm0 8h2v2h-2v-2z"></path>
                             </svg>
                         </div>
-                        <h4>Performance & Reliability</h4>
+                        <h4>Performance &amp; Reliability</h4>
                         <p class="text-sm text-gray-300 mt-2">Optimization for Core Web Vitals, caching strategies, and
                             high-availability deployment patterns.</p>
                     </div>
@@ -866,10 +939,10 @@
                     <div class="skill-card card-interaction text-center">
                         <div class="skill-icon mx-auto text-color-accent">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 14h-2v-2h2v2zm0-4h-2V6h2v6z" />
+                                <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 14h-2v-2h2v2zm0-4h-2V6h2v6z"></path>
                             </svg>
                         </div>
-                        <h4>Security & Compliance</h4>
+                        <h4>Security &amp; Compliance</h4>
                         <p class="text-sm text-gray-300 mt-2">Threat-modeling, secure-by-design implementations, and
                             practical compliance guidance (GDPR/local).</p>
                     </div>
@@ -878,27 +951,27 @@
         </section>
 
         <!-- Pricing Section: New Content from Price_list.png -->
-        <section id="pricing" class="py-16 md:py-20 lg:py-32 border-t border-gray-700 section-glass-bg">
+        <section id="pricing" class="py-20 md:py-32 border-t border-gray-700 section-glass-bg">
             <div class="container">
-                <div class="text-center mb-8 md:mb-16 max-w-3xl mx-auto px-4">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
                     <p class="text-sm text-color-accent font-semibold mb-2 tracking-wider uppercase">
                         Transparent Investment
                     </p>
-                    <h3 class="section-heading font-extrabold text-white">
-                        Digital Services & Pricing Packages.
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-white">
+                        Digital Services &amp; Pricing Packages.
                     </h3>
                 </div>
 
                 <!-- Website Packages Grid -->
-                <h4 class="text-2xl md:text-3xl font-bold text-white mb-6 border-b border-gray-700 pb-3 px-4">Website Packages</h4>
-                <div class="pricing-grid mb-8 md:mb-16 px-4">
+                <h4 class="text-3xl font-bold text-white mb-6 border-b border-gray-700 pb-3">Website Packages</h4>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+
                     <!-- Starter Package -->
-                    <div class="card-interaction p-6 md:p-8 rounded-2xl flex flex-col">
-                        <h5 class="text-2xl md:text-3xl font-bold text-color-accent mb-2">Starter</h5>
-                        <p class="text-4xl md:text-5xl font-extrabold text-white mb-4">R 499<span
-                                class="text-lg md:text-xl font-medium">.00</span></p>
-                        <p class="text-base md:text-lg text-gray-400 mb-6">One-time Fee, Perfect for simple online presence.</p>
-                        <ul class="space-y-3 flex-grow text-gray-300 text-sm md:text-base">
+                    <div class="card-interaction p-8 rounded-2xl flex flex-col">
+                        <h5 class="text-3xl font-bold text-color-accent mb-2">Starter</h5>
+                        <p class="text-5xl font-extrabold text-white mb-4">R 499<span class="text-xl font-medium">.00</span></p>
+                        <p class="text-lg text-gray-400 mb-6">One-time Fee, Perfect for simple online presence.</p>
+                        <ul class="space-y-3 flex-grow text-gray-300">
                             <li class="flex items-center space-x-3"><span class="text-color-accent font-bold">✓</span>
                                 <span>1-page Package</span></li>
                             <li class="flex items-center space-x-3"><span class="text-color-accent font-bold">✓</span>
@@ -908,22 +981,20 @@
                             <li class="flex items-center space-x-3"><span class="text-color-accent font-bold">✓</span>
                                 <span>Basic SEO Setup</span></li>
                         </ul>
-                        <button type="button" data-package="Starter"
-                            class="mt-6 md:mt-8 btn-primary text-white text-center py-3 rounded-xl font-semibold package-select w-full">
-                            Select Starter
-                        </button>
+                        <button type="button" data-package="Starter" class="mt-8 btn-primary text-white text-center py-3 rounded-xl font-semibold package-select" fdprocessedid="4i4ekm">Select
+                            Starter</button>
                     </div>
 
                     <!-- Business Package -->
-                    <div class="card-interaction p-6 md:p-8 rounded-2xl flex flex-col border-2 border-color-accent/50">
-                        <h5 class="text-2xl md:text-3xl font-bold text-color-accent mb-2">Business</h5>
-                        <p class="text-4xl md:text-5xl font-extrabold text-white mb-4">R 3,499</p>
-                        <p class="text-base md:text-lg text-gray-400 mb-6">One-time Fee, Best for growing businesses.</p>
-                        <ul class="space-y-3 flex-grow text-gray-300 text-sm md:text-base">
+                    <div class="card-interaction p-8 rounded-2xl flex flex-col border-2 border-color-accent/50">
+                        <h5 class="text-3xl font-bold text-color-accent mb-2">Business</h5>
+                        <p class="text-5xl font-extrabold text-white mb-4">R 3,499</p>
+                        <p class="text-lg text-gray-400 mb-6">One-time Fee, Best for growing businesses.</p>
+                        <ul class="space-y-3 flex-grow text-gray-300">
                             <li class="flex items-center space-x-3"><span class="text-color-accent font-bold">✓</span>
                                 <span>1-3 Page Website</span></li>
                             <li class="flex items-center space-x-3"><span class="text-color-accent font-bold">✓</span>
-                                <span>Mobile Responsive & Contact Form</span></li>
+                                <span>Mobile Responsive &amp; Contact Form</span></li>
                             <li class="flex items-center space-x-3"><span class="text-color-accent font-bold">✓</span>
                                 <span>Basic SEO Setup</span></li>
                             <li class="flex items-center space-x-3"><span class="text-color-accent font-bold">✓</span>
@@ -931,20 +1002,18 @@
                             <li class="flex items-center space-x-3"><span class="text-color-accent font-bold">✓</span>
                                 <span>1 Round of Changes Included</span></li>
                         </ul>
-                        <button type="button" data-package="Business"
-                            class="mt-6 md:mt-8 btn-primary text-white text-center py-3 rounded-xl font-semibold package-select w-full">
-                            Select Business
-                        </button>
+                        <button type="button" data-package="Business" class="mt-8 btn-primary text-white text-center py-3 rounded-xl font-semibold package-select" fdprocessedid="ob2w9o">Select
+                            Business</button>
                     </div>
 
                     <!-- Premium Package -->
-                    <div class="card-interaction p-6 md:p-8 rounded-2xl flex flex-col">
-                        <h5 class="text-2xl md:text-3xl font-bold text-color-accent mb-2">Premium</h5>
-                        <p class="text-4xl md:text-5xl font-extrabold text-white mb-4">R 6,499 - R 8,899</p>
-                        <p class="text-base md:text-lg text-gray-400 mb-6">Full-scale project for maximum digital presence.</p>
-                        <ul class="space-y-3 flex-grow text-gray-300 text-sm md:text-base">
+                    <div class="card-interaction p-8 rounded-2xl flex flex-col">
+                        <h5 class="text-3xl font-bold text-color-accent mb-2">Premium</h5>
+                        <p class="text-5xl font-extrabold text-white mb-4">R 6,499 - R 8,899</p>
+                        <p class="text-lg text-gray-400 mb-6">Full-scale project for maximum digital presence.</p>
+                        <ul class="space-y-3 flex-grow text-gray-300">
                             <li class="flex items-center space-x-3"><span class="text-color-accent font-bold">✓</span>
-                                <span>5-7 Page Website & Full Branding</span></li>
+                                <span>5-7 Page Website &amp; Full Branding</span></li>
                             <li class="flex items-center space-x-3"><span class="text-color-accent font-bold">✓</span>
                                 <span>Advanced SEO + Keywords</span></li>
                             <li class="flex items-center space-x-3"><span class="text-color-accent font-bold">✓</span>
@@ -956,34 +1025,32 @@
                             <li class="flex items-center space-x-3"><span class="text-color-accent font-bold">✓</span>
                                 <span>1 Month Maintenance</span></li>
                         </ul>
-                        <button type="button" data-package="Premium"
-                            class="mt-6 md:mt-8 btn-primary text-white text-center py-3 rounded-xl font-semibold package-select w-full">
-                            Select Premium
-                        </button>
+                        <button type="button" data-package="Premium" class="mt-8 btn-primary text-white text-center py-3 rounded-xl font-semibold package-select" fdprocessedid="syxuab">Select
+                            Premium</button>
                     </div>
                 </div>
 
                 <!-- Auxiliary Services Grid -->
-                <div class="services-grid px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
                     <!-- Branding Services -->
-                    <div class="card-interaction p-6 md:p-8 rounded-2xl">
-                        <h4 class="text-xl md:text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Branding Services
+                    <div class="card-interaction p-8 rounded-2xl">
+                        <h4 class="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Branding Services
                         </h4>
-                        <ul class="space-y-3 text-base md:text-lg">
+                        <ul class="space-y-3 text-lg">
                             <li class="flex justify-between items-end border-b border-gray-800 pb-1"><span>Logo
                                     Only</span><span class="font-bold text-color-accent">R 899</span></li>
                             <li class="flex justify-between items-end border-b border-gray-800 pb-1"><span>Branding
                                     Kit</span><span class="font-bold text-color-accent">R 1,999</span></li>
-                            <li class="flex justify-between items-end pb-1"><span>Full Identity Package</span><span
-                                    class="font-bold text-color-accent">R 3,499</span></li>
+                            <li class="flex justify-between items-end pb-1"><span>Full Identity Package</span><span class="font-bold text-color-accent">R 3,499</span></li>
                         </ul>
                     </div>
 
                     <!-- SEO, Cards & E-Vites -->
-                    <div class="card-interaction p-6 md:p-8 rounded-2xl">
-                        <h4 class="text-xl md:text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">SEO & Digital
+                    <div class="card-interaction p-8 rounded-2xl">
+                        <h4 class="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">SEO &amp; Digital
                             Assets</h4>
-                        <ul class="space-y-3 text-base md:text-lg">
+                        <ul class="space-y-3 text-lg">
                             <li class="flex justify-between items-end border-b border-gray-800 pb-1"><span>Basic SEO
                                     Setup</span><span class="font-bold text-color-accent">R 1,499</span></li>
                             <li class="flex justify-between items-end border-b border-gray-800 pb-1"><span>Monthly
@@ -1000,40 +1067,39 @@
             </div>
         </section>
 
+
         <!-- Projects Section: Link to Actual Portfolio URL -->
-        <section id="projects" class="py-16 md:py-20 lg:py-32 border-t border-gray-700 section-glass-bg">
+        <section id="projects" class="py-20 md:py-32 border-t border-gray-700 section-glass-bg">
             <div class="container">
-                <div class="text-center mb-8 md:mb-16 max-w-3xl mx-auto px-4">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
                     <p class="text-sm text-color-accent font-semibold mb-2 tracking-wider uppercase">
                         Portfolio of Impact
                     </p>
-                    <h3 class="section-heading font-extrabold text-white">
-                        Selected Deliverables & Signature Projects.
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-white">
+                        Selected Deliverables &amp; Signature Projects.
                     </h3>
                 </div>
 
-                <div class="grid grid-cols-1 gap-8 md:gap-10 px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
                     <!-- Portfolio Link Card (Primary CTA) -->
-                    <div
-                        class="card-interaction p-6 md:p-8 rounded-2xl text-center border-2 border-color-accent/70">
-                        <h4 class="text-2xl md:text-3xl font-bold text-white mb-2">My Live, Unfiltered Portfolio:</h4>
-                        <p class="text-gray-400 mb-6 text-lg md:text-xl">
+                    <div class="card-interaction p-8 rounded-2xl md:col-span-2 text-center border-2 border-color-accent/70">
+                        <h4 class="text-3xl font-bold text-white mb-2">My Live, Unfiltered Portfolio:</h4>
+                        <p class="text-gray-400 mb-6 text-xl">
                             All the projects, case studies, and live demonstrations of my capability are available
                             directly at my dedicated portfolio site.
                         </p>
-                        <a href="https://jemaile-portfolio.netlify.app/" target="_blank"
-                            class="inline-flex items-center space-x-3 px-6 py-3 md:px-8 md:py-3 rounded-full text-base md:text-lg text-white btn-primary font-bold transition w-full md:w-auto justify-center">
+                        <a href="https://jemaile-portfolio.netlify.app/" target="_blank" class="inline-flex items-center space-x-3 px-8 py-3 rounded-full text-lg text-white btn-primary font-bold transition">
                             <span>Visit jemaile-portfolio.netlify.app</span>
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                             </svg>
                         </a>
                     </div>
 
                     <!-- Case Study 1 (Simplified for quick read) -->
-                    <div class="card-interaction p-6 md:p-8 rounded-2xl">
-                        <h4 class="text-xl md:text-2xl font-bold text-white mb-2 hover:text-color-accent transition">E-Commerce
+                    <div class="card-interaction p-8 rounded-2xl">
+                        <h4 class="text-2xl font-bold text-white mb-2 hover:text-color-accent transition">E-Commerce
                             Bakery</h4>
                         <p class="text-gray-400 mb-4">A dedicated platform designed for streamlined customer order
                             processing, enhancing efficiency and user experience for a modern business.</p>
@@ -1046,8 +1112,8 @@
                     </div>
 
                     <!-- Case Study 2 (Simplified for quick read) -->
-                    <div class="card-interaction p-6 md:p-8 rounded-2xl">
-                        <h4 class="text-xl md:text-2xl font-bold text-white mb-2 hover:text-color-accent transition">Oracle Apex
+                    <div class="card-interaction p-8 rounded-2xl">
+                        <h4 class="text-2xl font-bold text-white mb-2 hover:text-color-accent transition">Oracle Apex
                             Warehouse mangement system</h4>
                         <p class="text-gray-400 mb-4">Built an Oracle APEX web application using the OT sample schema to
                             support enterprise
@@ -1064,72 +1130,109 @@
             </div>
         </section>
 
+        <!-- Case Studies Section (Renamed to Detailed Results) - Retained for structure -->
+        <!-- <section id="case-studies" class="py-20 md:py-32 border-t border-gray-700 section-glass-bg">
+            <div class="container max-w-5xl">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <p class="text-sm text-color-accent font-semibold mb-2 tracking-wider uppercase">
+                        The Process & Metrics
+                    </p>
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-white">
+                        How I Drive Quantitative Results.
+                    </h3>
+                </div> -->
+
+        <!-- Case Study 1 Block -->
+        <!-- <div class="card-interaction p-10 rounded-2xl mb-8">
+                    <h4 class="text-3xl font-bold text-white mb-4">Case Study: Enterprise Process Automation</h4>
+                    <p class="text-gray-300 mb-6">Challenge: Client relied on outdated, manual approval workflows resulting in a 4-week onboarding process for new users.</p>
+                    <p class="text-gray-300 mb-6">Solution: Developed a custom Angular front-end integrated with a serverless Python backend, implementing granular role-based access control and automated email pipelines.</p>
+                    <ul class="list-disc pl-5 space-y-2 text-lg text-white">
+                        <li>Result 1: Reduced the entire client onboarding cycle from 4 weeks to 2 hours.</li>
+                        <li>Result 2: Eliminated 99% of human error in critical data entry fields.</li>
+                        <li>Technology Focus: Angular, Python, AWS Lambda, DynamoDB.</li>
+                    </ul>
+                </div> -->
+
+        <!-- Case Study 2 Block -->
+        <!-- <div class="card-interaction p-10 rounded-2xl">
+                    <h4 class="text-3xl font-bold text-white mb-4">Case Study: Real-Time Bidding Dashboard (FinTech)</h4>
+                    <p class="text-gray-300 mb-6">Challenge: Traders needed a dashboard capable of displaying 100+ data updates per second with no discernible lag to capture fleeting market opportunities.</p>
+                    <p class="text-gray-300 mb-6">Solution: Utilized React with WebSockets (socket.io) and custom Canvas rendering for zero-DOM-overhead data visualization, ensuring sub-10ms latency.</p>
+                    <ul class="list-disc pl-5 space-y-2 text-lg text-white">
+                        <li>Result 1: Achieved a stable, sub-5ms data update latency under peak load.</li>
+                        <li>Result 2: Provided traders a critical competitive advantage by visualizing data 2 seconds faster than competing platforms.</li>
+                        <li>Technology Focus: React, WebSockets, D3.js, High-Frequency Data Pipelines.</li>
+                    </ul>
+                </div>
+            </div>
+        </section> -->
+
         <!-- Testimonials Section: Social Proof is Mandatory -->
-        <section id="testimonials" class="py-16 md:py-20 lg:py-32 border-t border-gray-700 section-glass-bg">
+        <section id="testimonials" class="py-20 md:py-32 border-t border-gray-700 section-glass-bg">
             <div class="container">
-                <div class="text-center mb-8 md:mb-16 max-w-3xl mx-auto px-4">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
                     <p class="text-sm text-color-accent font-semibold mb-2 tracking-wider uppercase">
                         Unfiltered Client Feedback
                     </p>
-                    <h3 class="section-heading font-extrabold text-white">
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-white">
                         Proof of Partnership.
                     </h3>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
                     <!-- Testimonial 1 -->
                     <div class="card-interaction p-6 rounded-2xl">
-                        <p class="text-base md:text-lg italic text-gray-200 mb-4">"Jemaile's ethics and technical vision are
+                        <p class="text-lg italic text-gray-200 mb-4">"Jemaile's ethics and technical vision are
                             exceptional. As Programme and Technical Director, he drives our mission with integrity,
-                            delivering innovative solutions that truly empower communities."</p>
-                        <p class="font-bold text-white">- Chad P, <span class="text-color-accent">CEO,<a  href="https://thedccsa.org/" target="_blank"> DCCSA</a></span></p>
+                            delivering innovative solutions that truly empower&nbsp;communities."</p>
+                        <p class="font-bold text-white">- Chad P, <span class="text-color-accent">CEO,<a href="https://thedccsa.org/" target="_blank"> DCCSA</a></span></p>
                     </div>
 
                     <!-- Testimonial 2 -->
                     <div class="card-interaction p-6 rounded-2xl">
-                        <p class="text-base md:text-lg italic text-gray-200 mb-4">"Direct communication, zero fluff. We got a higher
+                        <p class="text-lg italic text-gray-200 mb-4">"Direct communication, zero fluff. We got a higher
                             quality product faster and cheaper than any agency quote. Highly recommended."</p>
-                        <p class="font-bold text-white">- Tia O., <span class="text-color-accent">Owner, <a
-                                    href="https://www.tastesbyt.co.za" target="_blank">tastesbyT</a></span></p>
+                        <p class="font-bold text-white">- Tia O., <span class="text-color-accent">Owner, <a href="https://www.tastesbyt.co.za/" target="_blank">tastesbyT</a></span></p>
                     </div>
+
+                    <!-- Testimonial 3 -->
+                    <!-- <div class="card-interaction p-6 rounded-2xl">
+                        <p class="text-lg italic text-gray-200 mb-4">"The commitment to performance optimization was insane. We saw an immediate 35% improvement in Core Web Vitals on launch day."</p>
+                        <p class="font-bold text-white">- Mark V., <span class="text-color-accent">Founder, HealthTech</span></p>
+                    </div> -->
                 </div>
             </div>
         </section>
 
         <!-- Final Call to Action / Contact (Form) -->
-        <section id="contact" class="py-16 md:py-20 lg:py-32 border-t border-gray-700 section-glass-bg">
-            <div class="container max-w-4xl mx-auto card-interaction p-6 md:p-8 lg:p-12 rounded-3xl"
-                aria-labelledby="contact-heading">
+        <section id="contact" class="py-20 md:py-32 border-t border-gray-700 section-glass-bg">
+            <div class="container max-w-4xl mx-auto card-interaction p-8 md:p-12 rounded-3xl" aria-labelledby="contact-heading">
                 <div class="text-center mb-6">
-                    <h3 id="contact-heading" class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2">Ready to Scale
+                    <h3 id="contact-heading" class="text-4xl md:text-5xl font-extrabold text-white mb-2">Ready to Scale
                         Your Vision?</h3>
-                    <p class="text-lg md:text-xl text-gray-400">Choose a package or describe your brief below — I'll respond within
+                    <p class="text-xl text-gray-400">Choose a package or describe your brief below — I'll respond within
                         48 hours.</p>
                 </div>
 
-                <form id="contact-form" class="max-w-2xl mx-auto text-left space-y-4" novalidate
-                    action="https://formspree.io/f/xdkprbzk" method="POST">
+                <form id="contact-form" class="max-w-2xl mx-auto text-left space-y-4" novalidate="" action="https://formspree.io/f/xdkprbzk" method="POST">
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <label class="flex flex-col">
                             <span class="text-sm text-gray-300 mb-1">Your name</span>
-                            <input id="contact-name" name="name" type="text" required
-                                class="p-3 rounded-lg bg-transparent border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-color-accent"
-                                placeholder="Jane Doe">
+                            <input id="contact-name" name="name" type="text" required="" class="p-3 rounded-lg bg-transparent border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-color-accent" placeholder="Jane Doe" fdprocessedid="kr69bd">
                         </label>
 
                         <label class="flex flex-col">
                             <span class="text-sm text-gray-300 mb-1">Email</span>
-                            <input id="contact-email" name="email" type="email" required
-                                class="p-3 rounded-lg bg-transparent border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-color-accent"
-                                placeholder="you@company.com">
+                            <input id="contact-email" name="email" type="email" required="" class="p-3 rounded-lg bg-transparent border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-color-accent" placeholder="you@company.com" fdprocessedid="4qiwe6">
                         </label>
                     </div>
 
                     <label class="flex flex-col">
                         <span class="text-sm text-gray-300 mb-1">Selected package</span>
-                        <select id="contact-package" name="package"
-                            class="p-3 rounded-lg bg-transparent border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-color-accent">
+                        <select id="contact-package" name="package" class="p-3 rounded-lg bg-transparent border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-color-accent" fdprocessedid="z37pfs">
                             <option value="">None selected</option>
                             <option value="Starter">Starter</option>
                             <option value="Business">Business</option>
@@ -1140,17 +1243,13 @@
 
                     <label class="flex flex-col">
                         <span class="text-sm text-gray-300 mb-1">Project brief</span>
-                        <textarea id="contact-message" name="message" rows="6"
-                            class="p-3 rounded-lg bg-transparent border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-color-accent"
-                            placeholder="Summarize your goals, timeline, and budget (optional)"></textarea>
+                        <textarea id="contact-message" name="message" rows="6" class="p-3 rounded-lg bg-transparent border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-color-accent" placeholder="Summarize your goals, timeline, and budget (optional)"></textarea>
                     </label>
 
-                    <div class="flex flex-col sm:flex-row items-center gap-4">
-                        <button type="submit" id="contact-submit"
-                            class="btn-primary px-6 py-3 rounded-full text-white font-bold w-full sm:w-auto">Send inquiry</button>
-                        <button type="button" id="contact-clear"
-                            class="px-4 py-2 rounded-lg border border-gray-700 text-gray-300 w-full sm:w-auto">Clear</button>
-                        <div id="contact-status" class="text-sm text-gray-300 sm:ml-2 text-center sm:text-left w-full sm:w-auto" aria-live="polite"></div>
+                    <div class="flex items-center gap-4">
+                        <button type="submit" id="contact-submit" class="btn-primary px-6 py-3 rounded-full text-white font-bold" fdprocessedid="n5xw59">Send inquiry</button>
+                        <button type="button" id="contact-clear" class="px-4 py-2 rounded-lg border border-gray-700 text-gray-300" fdprocessedid="05g72i">Clear</button>
+                        <div id="contact-status" class="text-sm text-gray-300 ml-2" aria-live="polite"></div>
                     </div>
                 </form>
             </div>
@@ -1158,34 +1257,27 @@
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer py-12 border-t border-gray-800 section-glass-bg" role="contentinfo"
-        aria-label="Site footer">
+    <footer class="site-footer py-12 border-t border-gray-800 section-glass-bg" role="contentinfo" aria-label="Site footer">
         <div class="container">
-            <div class="footer-grid px-4">
+            <div class="footer-grid">
                 <div>
                     <div class="footer-logo">JM.<span style="color:var(--color-accent)">dev</span></div>
                     <p class="mt-3 text-gray-300">Strategic Digital Architecture — Independent Contractor focused on
                         performant, secure, and scalable product experiences.</p>
                     <div class="social-list mt-4" aria-hidden="false">
-                        <a class="social-link" href="https://github.com/" target="_blank" rel="noopener noreferrer"
-                            aria-label="GitHub">
+                        <a class="social-link" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path
-                                    d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.7.08-.7 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.76.41-1.27.75-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.04 0 0 .98-.31 3.21 1.18a11.1 11.1 0 0 1 2.92-.39c.99.01 1.99.13 2.92.39 2.22-1.49 3.2-1.18 3.2-1.18.63 1.58.23 2.75.11 3.04.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.79 1.06.79 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+                                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.7.08-.7 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.76.41-1.27.75-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.04 0 0 .98-.31 3.21 1.18a11.1 11.1 0 0 1 2.92-.39c.99.01 1.99.13 2.92.39 2.22-1.49 3.2-1.18 3.2-1.18.63 1.58.23 2.75.11 3.04.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.79 1.06.79 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"></path>
                             </svg>
                         </a>
-                        <a class="social-link" href="https://www.linkedin.com/in/jemaile-mohamed/" target="_blank"
-                            rel="noopener noreferrer" aria-label="LinkedIn">
+                        <a class="social-link" href="https://www.linkedin.com/in/jemaile-mohamed/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path
-                                    d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48c0 1.64 1.34 2.98 2.98 2.98 1.64 0 2.98-1.34 2.98-2.98C7.96 4.84 6.62 3.5 4.98 3.5zM2.4 21.5h5.17V8.99H2.4V21.5zM9.91 8.99V21.5h5.17v-6.74c0-3.62 4.02-3.91 4.02 0v6.74H24V14.4c0-6.75-7.28-6.51-9.9-3.19V8.99H9.91z" />
+                                <path d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48c0 1.64 1.34 2.98 2.98 2.98 1.64 0 2.98-1.34 2.98-2.98C7.96 4.84 6.62 3.5 4.98 3.5zM2.4 21.5h5.17V8.99H2.4V21.5zM9.91 8.99V21.5h5.17v-6.74c0-3.62 4.02-3.91 4.02 0v6.74H24V14.4c0-6.75-7.28-6.51-9.9-3.19V8.99H9.91z"></path>
                             </svg>
                         </a>
-                        <a class="social-link" href="http://wa.me/27662908976" target="_blank" rel="noopener noreferrer"
-                            aria-label="WhatsApp">
+                        <a class="social-link" href="http://wa.me/27662908976" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path
-                                    d="M20.52 3.48A11.88 11.88 0 0 0 12 .02C5.37.02.02 5.37.02 12c0 2.11.55 4.16 1.6 5.97L.02 24l6.29-1.65a11.9 11.9 0 0 0 5.69 1.45h.01c6.63 0 11.98-5.35 11.98-11.98 0-3.2-1.25-6.21-3.48-8.39zm-8.5 17.28h-.01a9.42 9.42 0 0 1-4.8-1.32l-.34-.2-2.8 2.8 1.41 1.41 2.8-2.8.2-.34a9.41 9.41 0 0 1-1.32-4.8h.01zM12 6.98c-3.26 0-6.2 2.93-6.2 6.2 0 3.26 2.93 6.2 6.2 6.2 3.27 0 6.2-2.93 6.2-6.2 0-3.27-2.93-6.2-6.2-6.2z" />
+                                <path d="M20.52 3.48A11.88 11.88 0 0 0 12 .02C5.37.02.02 5.37.02 12c0 2.11.55 4.16 1.6 5.97L.02 24l6.29-1.65a11.9 11.9 0 0 0 5.69 1.45h.01c6.63 0 11.98-5.35 11.98-11.98 0-3.2-1.25-6.21-3.48-8.39zm-8.5 17.28h-.01a9.42 9.42 0 0 1-4.8-1.32l-.34-.2-2.8 2.8 1.41 1.41 2.8-2.8.2-.34a9.41 9.41 0 0 1-1.32-4.8h.01zM12 6.98c-3.26 0-6.2 2.93-6.2 6.2 0 3.26 2.93 6.2 6.2 6.2 3.27 0 6.2-2.93 6.2-6.2 0-3.27-2.93-6.2-6.2-6.2z"></path>
                             </svg>
                         </a>
                     </div>
@@ -1194,11 +1286,11 @@
                 <div>
                     <nav aria-label="Footer navigation">
                         <ul class="space-y-2 text-gray-300">
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#expertise">Expertise</a></li>
-                            <li><a href="#projects">Portfolio</a></li>
-                            <li><a href="#pricing">Pricing</a></li>
-                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="http://127.0.0.1:5500/index.html#about">About</a></li>
+                            <li><a href="http://127.0.0.1:5500/index.html#expertise">Expertise</a></li>
+                            <li><a href="http://127.0.0.1:5500/index.html#projects">Portfolio</a></li>
+                            <li><a href="http://127.0.0.1:5500/index.html#pricing">Pricing</a></li>
+                            <li><a href="http://127.0.0.1:5500/index.html#testimonials">Testimonials</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -1208,23 +1300,21 @@
                     <p class="mt-2 text-gray-300"><a href="mailto:jemaile75@gmail.com" class="contact-cta">Email Me</a>
                     </p>
                     <p class="mt-3 text-gray-300">Available for remote and hybrid engagements. NDA on request.</p>
-                    <p class="mt-3"><a href="https://jemaile-portfolio.netlify.app/" target="_blank"
-                            rel="noopener noreferrer">View Portfolio</a></p>
+                    <p class="mt-3"><a href="https://jemaile-portfolio.netlify.app/" target="_blank" rel="noopener noreferrer">View Portfolio</a></p>
                 </div>
             </div>
 
-            <div class="footer-legal mt-6 flex flex-col md:flex-row items-center justify-between gap-4 px-4">
-                <p>&copy; 2025 JM.dev — All rights reserved.</p>
+            <div class="footer-legal mt-6 flex items-center justify-between flex-wrap">
+                <p>© 2025 JM.dev — All rights reserved.</p>
                 <div class="flex items-center gap-4">
-                    <a href="privacy.html" class="text-sm">Privacy</a>
-                    <a href="terms.html" class="text-sm">Terms</a>
-                    <button id="cookie-policy-btn" class="text-sm">Cookies</button>
+                    <a href="http://127.0.0.1:5500/privacy.html" class="text-sm">Privacy</a>
+                    <a href="http://127.0.0.1:5500/terms.html" class="text-sm">Terms</a>
+                    <button id="cookie-policy-btn" class="text-sm" fdprocessedid="gf6sqh">Cookies</button>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- The rest of your JavaScript remains the same -->
     <script>
         // Smooth scrolling for navigation links, ensuring the best user experience.
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1405,6 +1495,16 @@
 
                 acceptBtn && acceptBtn.addEventListener('click', () => setCookieConsent(true));
                 declineBtn && declineBtn.addEventListener('click', () => setCookieConsent(false));
+                
+                /* Wire up learn-more button (replaces inline onclick) */
+                const learnMoreBtn = document.getElementById('learn-more-btn');
+                learnMoreBtn && learnMoreBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openPrivacyModal();
+                });
+                
+                policyBtn && policyBtn.addEventListener('click', (e) => { e.preventDefault(); openPrivacyModal(); });
+
                 // Modal open/close helpers (privacy)
                 let __jm_last_focused = null;
                 function openPrivacyModal() {
@@ -1416,11 +1516,19 @@
                     overlay.setAttribute('aria-hidden', 'false');
                     document.body.classList.add('no-scroll');
                     fetch('privacy.html').then(r => r.text()).then(html => {
-                        content.innerHTML = html;
+                        /* Sanitize HTML: create a temp element to extract text/safe content */
+                        const temp = document.createElement('div');
+                        temp.innerHTML = html;
+                        /* Extract only the body content safely */
+                        const body = temp.querySelector('body') || temp;
+                        content.innerHTML = '';
+                        while (body.firstChild) {
+                            content.appendChild(body.firstChild);
+                        }
                         const closeBtn = document.getElementById('modal-close');
                         closeBtn && closeBtn.focus();
                     }).catch(() => {
-                        content.innerHTML = '<p>Unable to load policy. Please visit the privacy page directly.</p>';
+                        content.textContent = 'Unable to load policy. Please visit the privacy page directly.';
                         document.getElementById('modal-close')?.focus();
                     });
                 }
@@ -1469,7 +1577,7 @@
         <div class="cookie-container">
             <div class="cookie-content">
                 <h3>We value your privacy</h3>
-                <p>We use cookies to enhance your browsing experience. By continuing, you consent to our use of cookies. <a href="#" onclick="document.getElementById('cookie-policy-btn').click(); return false;">Learn more</a>.</p>
+                <p>We use cookies to enhance your browsing experience. By continuing, you consent to our use of cookies. <button id="learn-more-btn" class="learn-more-link">Learn more</button>.</p>
             </div>
             <div class="cookie-actions">
                 <button id="cookie-decline" class="cookie-btn cookie-btn-decline">Decline</button>
@@ -1482,12 +1590,12 @@
     <div id="modal-overlay" class="modal-overlay hidden" aria-hidden="true">
         <div class="modal" role="dialog" aria-modal="true" aria-label="Privacy Policy">
             <div class="modal-header">
-                <h2 style="margin:0">Privacy Policy</h2>
+                <h2 class="modal-title">Privacy Policy</h2>
                 <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
             </div>
-            <div id="modal-content" style="margin-top:1rem"></div>
+            <div id="modal-content" class="modal-content-area"></div>
         </div>
     </div>
-</body>
 
-</html>
+
+<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
