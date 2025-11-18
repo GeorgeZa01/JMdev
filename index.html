@@ -586,6 +586,37 @@
             }
         }
 
+        /* Modal (privacy) styles */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(2,6,23,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1200;
+            padding: 1.5rem;
+        }
+
+        .modal-overlay.hidden { display: none; }
+
+        .modal {
+            background: rgba(8,10,20,0.98);
+            color: var(--color-text);
+            max-width: 920px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(2,6,23,0.6);
+            border: 1px solid rgba(255,255,255,0.03);
+            padding: 1.25rem;
+        }
+
+        .modal-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+        .modal-close { background:transparent; border:none; color:var(--color-text); font-weight:700; padding:0.5rem; border-radius:8px; }
+        .modal-close:focus { outline:3px solid rgba(59,130,246,0.18); }
+
         /* Mobile / touch target improvements */
         header {
             /* ensure header doesn't sit under notches */
@@ -1355,9 +1386,52 @@
 
                 acceptBtn && acceptBtn.addEventListener('click', () => setCookieConsent(true));
                 declineBtn && declineBtn.addEventListener('click', () => setCookieConsent(false));
-                policyBtn && policyBtn.addEventListener('click', () => {
-                    // Replace with a real policy modal or page when available
-                    alert('Cookie Policy:\n\nWe use cookies to enhance your experience. You can manage your preferences in your browser settings.');
+                // Modal open/close helpers (privacy)
+                let __jm_last_focused = null;
+                function openPrivacyModal() {
+                    const overlay = document.getElementById('modal-overlay');
+                    const content = document.getElementById('modal-content');
+                    if (!overlay || !content) return;
+                    __jm_last_focused = document.activeElement;
+                    overlay.classList.remove('hidden');
+                    overlay.setAttribute('aria-hidden', 'false');
+                    document.body.classList.add('no-scroll');
+                    fetch('privacy.html').then(r => r.text()).then(html => {
+                        content.innerHTML = html;
+                        const closeBtn = document.getElementById('modal-close');
+                        closeBtn && closeBtn.focus();
+                    }).catch(() => {
+                        content.innerHTML = '<p>Unable to load policy. Please visit the privacy page directly.</p>';
+                        document.getElementById('modal-close')?.focus();
+                    });
+                }
+
+                function closePrivacyModal() {
+                    const overlay = document.getElementById('modal-overlay');
+                    const content = document.getElementById('modal-content');
+                    if (!overlay) return;
+                    overlay.classList.add('hidden');
+                    overlay.setAttribute('aria-hidden', 'true');
+                    document.body.classList.remove('no-scroll');
+                    if (content) content.innerHTML = '';
+                    try { __jm_last_focused && __jm_last_focused.focus(); } catch (e) { }
+                }
+
+                policyBtn && policyBtn.addEventListener('click', (e) => { e.preventDefault(); openPrivacyModal(); });
+
+                // modal close button, overlay and escape handling
+                document.getElementById('modal-close')?.addEventListener('click', () => closePrivacyModal());
+                document.addEventListener('click', (e) => {
+                    const overlay = document.getElementById('modal-overlay');
+                    if (overlay && !overlay.classList.contains('hidden') && e.target === overlay) {
+                        closePrivacyModal();
+                    }
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        const overlay = document.getElementById('modal-overlay');
+                        if (overlay && !overlay.classList.contains('hidden')) closePrivacyModal();
+                    }
                 });
 
                 checkConsentAndInit();
@@ -1382,6 +1456,17 @@
                 <button id="cookie-decline" class="cookie-btn cookie-btn-decline">Decline</button>
                 <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accept</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Privacy Modal Overlay -->
+    <div id="modal-overlay" class="modal-overlay hidden" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-label="Privacy Policy">
+            <div class="modal-header">
+                <h2 style="margin:0">Privacy Policy</h2>
+                <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
+            </div>
+            <div id="modal-content" style="margin-top:1rem"></div>
         </div>
     </div>
 </body>
