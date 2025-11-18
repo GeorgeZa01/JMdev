@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block indexing of any staging or admin paths (uncomment and edit if needed)
+# Disallow: /admin/
+
+Sitemap: https://jm.dev/sitemap.xml
