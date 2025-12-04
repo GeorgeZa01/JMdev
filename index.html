@@ -1927,6 +1927,73 @@
                 border-radius: 0px;
             }
         }
+
+        /* --- CALORIE AI OVERLAY STYLES --- */
+        .cai-modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999; opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .cai-modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .cai-modal-content {
+            background-color: #0d0d0d; color: white;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+            border: 1px solid #1f2937; /* border-gray-800 */
+            padding: 1.5rem; /* p-6 */
+            width: 91.666667%; /* w-11/12 */
+            max-width: 32rem; /* max-w-lg */
+            position: relative;
+            transform: scale(0.9); transition: transform 0.3s ease-in-out;
+        }
+        @media (min-width: 768px) { .cai-modal-content { padding: 2rem; /* md:p-8 */ } }
+        .cai-modal-overlay.active .cai-modal-content { transform: scale(1); }
+        
+        .cai-icon-container {
+            padding: 1rem; border-radius: 9999px; 
+            background-color: rgba(124, 45, 18, 0.5); /* bg-orange-900/50 */
+            display: flex; justify-content: center; width: fit-content; margin: 0 auto 1rem auto;
+        }
+        .cai-icon { width: 2.5rem; height: 2.5rem; color: #f97316; /* text-orange-500 */ }
+        
+        .cai-title {
+            font-size: 1.875rem; line-height: 2.25rem; font-weight: 800; text-align: center;
+            margin-bottom: 0.5rem; color: #ff5722; letter-spacing: -0.025em;
+        }
+        .cai-subtitle {
+            font-size: 1.25rem; line-height: 1.75rem; text-align: center; color: #d1d5db; /* text-gray-300 */
+            font-weight: 600; margin-bottom: 1.5rem;
+        }
+        .cai-text {
+            color: #9ca3af; /* text-gray-400 */
+            margin-bottom: 1.5rem; text-align: center; line-height: 1.625;
+        }
+        
+        .cai-btn-primary {
+            display: inline-flex; justify-content: center; align-items: center;
+            padding: 0.75rem 1.5rem; 
+            background-color: #ea580c; color: white;
+            font-weight: 700; border-radius: 0.5rem; 
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            transition: all 0.2s; text-decoration: none;
+            width: 100%; box-sizing: border-box;
+        }
+        .cai-btn-primary:hover { background-color: #c2410c; transform: scale(1.02); }
+        
+        .cai-btn-secondary {
+            font-size: 0.875rem; font-weight: 500; color: #6b7280; /* text-gray-500 */
+            background: none; border: none; cursor: pointer;
+            width: 100%; margin-top: 0.75rem; transition: color 0.3s;
+        }
+        .cai-btn-secondary:hover { color: #d1d5db; }
+        
+        .cai-close-btn {
+            position: absolute; top: 0.75rem; right: 0.75rem;
+            color: #6b7280; background: transparent; border: none; cursor: pointer; padding: 0.5rem;
+        }
+        .cai-close-btn:hover { color: white; }
     </style>
 </head>
 
@@ -2286,44 +2353,6 @@
             </div>
         </section>
 
-        <!-- Case Studies Section (Renamed to Detailed Results) - Retained for structure -->
-        <!-- <section id="case-studies" class="py-20 md:py-32 border-t border-gray-700 section-glass-bg">
-            <div class="container max-w-5xl">
-                <div class="text-center mb-16 max-w-3xl mx-auto">
-                    <p class="text-sm text-color-accent font-semibold mb-2 tracking-wider uppercase">
-                        The Process & Metrics
-                    </p>
-                    <h3 class="text-4xl md:text-5xl font-extrabold text-white">
-                        How I Drive Quantitative Results.
-                    </h3>
-                </div> -->
-
-        <!-- Case Study 1 Block -->
-        <!-- <div class="card-interaction p-10 rounded-2xl mb-8">
-                    <h4 class="text-3xl font-bold text-white mb-4">Case Study: Enterprise Process Automation</h4>
-                    <p class="text-gray-300 mb-6">Challenge: Client relied on outdated, manual approval workflows resulting in a 4-week onboarding process for new users.</p>
-                    <p class="text-gray-300 mb-6">Solution: Developed a custom Angular front-end integrated with a serverless Python backend, implementing granular role-based access control and automated email pipelines.</p>
-                    <ul class="list-disc pl-5 space-y-2 text-lg text-white">
-                        <li>Result 1: Reduced the entire client onboarding cycle from 4 weeks to 2 hours.</li>
-                        <li>Result 2: Eliminated 99% of human error in critical data entry fields.</li>
-                        <li>Technology Focus: Angular, Python, AWS Lambda, DynamoDB.</li>
-                    </ul>
-                </div> -->
-
-        <!-- Case Study 2 Block -->
-        <!-- <div class="card-interaction p-10 rounded-2xl">
-                    <h4 class="text-3xl font-bold text-white mb-4">Case Study: Real-Time Bidding Dashboard (FinTech)</h4>
-                    <p class="text-gray-300 mb-6">Challenge: Traders needed a dashboard capable of displaying 100+ data updates per second with no discernible lag to capture fleeting market opportunities.</p>
-                    <p class="text-gray-300 mb-6">Solution: Utilized React with WebSockets (socket.io) and custom Canvas rendering for zero-DOM-overhead data visualization, ensuring sub-10ms latency.</p>
-                    <ul class="list-disc pl-5 space-y-2 text-lg text-white">
-                        <li>Result 1: Achieved a stable, sub-5ms data update latency under peak load.</li>
-                        <li>Result 2: Provided traders a critical competitive advantage by visualizing data 2 seconds faster than competing platforms.</li>
-                        <li>Technology Focus: React, WebSockets, D3.js, High-Frequency Data Pipelines.</li>
-                    </ul>
-                </div>
-            </div>
-        </section> -->
-
         <!-- Testimonials Section: Social Proof is Mandatory -->
         <section id="testimonials" class="py-20 md:py-32 border-t border-gray-700 section-glass-bg">
             <div class="container">
@@ -2354,12 +2383,6 @@
                         <p class="font-bold text-white">- Tia O., <span class="text-color-accent">Owner, <a
                                     href="https://tastesbyt.co.za/" target="_blank">tastesbyT</a></span></p>
                     </div>
-
-                    <!-- Testimonial 3 -->
-                    <!-- <div class="card-interaction p-6 rounded-2xl">
-                        <p class="text-lg italic text-gray-200 mb-4">"The commitment to performance optimization was insane. We saw an immediate  35% improvement in Core Web Vitals on launch day."</p>
-                        <p class="font-bold text-white">- Mark V., <span class="text-color-accent">Founder, HealthTech</span></p>
-                    </div> -->
                 </div>
             </div>
         </section>
@@ -2426,6 +2449,7 @@
         </section>
     </main>
 
+    
     <!-- Footer -->
     <footer class="site-footer py-12 border-t border-gray-800 section-glass-bg" role="contentinfo"
         aria-label="Site footer">
@@ -2515,6 +2539,7 @@
     </footer>
 
     <script>
+        
         // Smooth scrolling for navigation links, ensuring the best user experience.
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2845,7 +2870,100 @@
     </div>
 
 
+    <!-- --- CALORIE AI PROMO MODAL START --- -->
+    <div id="calorieAI-modal-overlay" class="cai-modal-overlay">
+        <!-- Modal Content Container -->
+        <div class="cai-modal-content">
+
+            <!-- Close Button -->
+            <button id="cai-close-modal" aria-label="Close promotion" class="cai-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- App Icon/Logo -->
+            <div class="cai-icon-container">
+                <svg xmlns="http://www.w3.org/2000/svg" class="cai-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15v2m0 0v2m0-2h2m-2 0h-2M9 15h6m-6 0v2m0 0v2m0-2h2m-2 0h-2m-2-4a7 7 0 1114 0h-2a5 5 0 00-10 0H7z" />
+                </svg>
+            </div>
+
+            <h2 class="cai-title">
+                CalorieAI is Here!
+            </h2>
+            <p class="cai-subtitle">
+                Join the FREE Beta Test!
+            </p>
+
+            <p class="cai-text">
+                Meet your ultimate fitness partner. Track calories, log meals with AI, discover smart recipes, and achieve your weight goals.
+            </p>
+
+            <!-- Call to Action Buttons -->
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <a href="https://nutri-ai-za.base44.app" target="_blank" rel="noopener noreferrer" 
+                   class="cai-btn-primary">
+                    Download & Start Free
+                </a>
+                <button id="cai-maybe-later" class="cai-btn-secondary">
+                    No thanks, maybe later
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- --- CALORIE AI PROMO MODAL END --- -->
+
     <span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span>
+
+    <!-- --- CALORIE AI PROMO LOGIC START --- -->
+    <script>
+        // --- Modal Logic ---
+        const caiModal = document.getElementById('calorieAI-modal-overlay');
+        const caiCloseBtn = document.getElementById('cai-close-modal');
+        const caiLaterBtn = document.getElementById('cai-maybe-later');
+        const caiStorageKey = 'CalorieAI_Promo_Shown';
+
+        function hasUserSeenCaiModal() {
+            return sessionStorage.getItem(caiStorageKey) === 'true';
+        }
+
+        function markCaiModalAsSeen() {
+            sessionStorage.setItem(caiStorageKey, 'true');
+        }
+
+        function showCaiModal() {
+            if(caiModal) {
+                caiModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                markCaiModalAsSeen();
+            }
+        }
+
+        function hideCaiModal() {
+            if(caiModal) {
+                caiModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if(caiCloseBtn) caiCloseBtn.addEventListener('click', hideCaiModal);
+        if(caiLaterBtn) caiLaterBtn.addEventListener('click', hideCaiModal);
+
+        if(caiModal) {
+            caiModal.addEventListener('click', (e) => {
+                if (e.target === caiModal) hideCaiModal();
+            });
+        }
+
+        // Show automatically after 1.5 seconds if not seen yet
+        window.addEventListener('load', () => {
+            if (!hasUserSeenCaiModal()) {
+                setTimeout(showCaiModal, 1500); 
+            }
+        });
+    </script>
+    <!-- --- CALORIE AI PROMO LOGIC END --- -->
 </body>
 
 </html>
