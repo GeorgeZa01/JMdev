@@ -120,7 +120,7 @@ export function Hero() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
-            <Button
+            {/* <Button
               asChild
               variant="outline"
               size="lg"
@@ -134,7 +134,7 @@ export function Hero() {
                 View Portfolio
                 <ExternalLink className="ml-2 h-4 w-4" />
               </a>
-            </Button>
+            </Button> */}
           </motion.div>
 
           {/* Stats */}

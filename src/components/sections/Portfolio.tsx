@@ -134,7 +134,7 @@ export function Portfolio() {
             All projects, case studies, and live demonstrations are available at my
             dedicated portfolio site.
           </p>
-          <Button
+          {/* <Button
             asChild
             variant="outline"
             size="lg"
@@ -148,7 +148,7 @@ export function Portfolio() {
               View Full Portfolio
               <ExternalLink className="ml-2 h-4 w-4" />
             </a>
-          </Button>
+          </Button> */}
         </motion.div>
       </div>
     </SectionWrapper>
