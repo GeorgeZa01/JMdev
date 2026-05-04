@@ -1,0 +1,16 @@
+{
+  "name": "JMdev",
+  "short_name": "JMdev",
+  "description": "PC repairs, console repairs, websites, apps, and full-stack development services.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070c12",
+  "theme_color": "#40dca5",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}
