@@ -5,32 +5,40 @@ import { SectionWrapper } from "@/components/ui/section-wrapper";
 
 const projects = [
   {
-    title: "E-Commerce Bakery Platform",
-    description:
-      "Full-stack web platform for order processing and customer management with real-time inventory tracking and AI-powered recommendations.",
-    tags: ["React/TS", "Node.js API", "AI Integration"],
-    image: "https://images.unsplash.com/photo-1556742212-5b321f3c261d?w=600&h=400&fit=crop",
+    title: "Arize Electronics E-commerce Store",
+    problem: "An electronics business needed a secure online store with admin controls.",
+    solution: "Developed a full-stack store with JWT-based admin verification and REST API integration.",
+    result: "A complete commerce experience backed by Node.js, Express, MySQL, and JavaScript.",
+    tags: ["Node.js", "Express.js", "MySQL", "JWT", "REST APIs"],
+    liveUrl: "https://arize-e-commerce.vercel.app/",
+    image: "https://github.com/GeorgeZa01/Project-Screenshots/blob/main/arize.png?raw=true",
   },
   {
-    title: "Oracle Apex Warehouse System",
-    description:
-      "Enterprise warehouse management application with advanced analytics, reporting dashboards, and multi-user access controls.",
-    tags: ["Oracle Apex", "Analytics", "Dashboard"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+    title: "FaviconMagic Pro",
+    problem: "Creating consistent favicon and branding assets can be slow and fragmented.",
+    solution: "Built a focused React utility for creating assets with a fast, user-friendly interface.",
+    result: "A polished visual tool that turns asset creation into a simpler workflow.",
+    tags: ["Vercel", "React", "Frontend UI"],
+    liveUrl: "https://favicon-by-jmdev.netlify.app/",
+    image: "https://github.com/GeorgeZa01/Project-Screenshots/blob/main/FaviconMagic.png?raw=true",
   },
   {
-    title: "Console Repair & Restoration",
-    description:
-      "Successful repair and restoration of multiple gaming consoles including PlayStation, Xbox, and Nintendo units with full hardware diagnostics.",
-    tags: ["Hardware", "Diagnostics", "Quality Assured"],
-    image: "https://images.unsplash.com/photo-1538481143235-c8f36f1f1b75?w=600&h=400&fit=crop",
+    title: "Kairo-sKoffee",
+    problem: "A coffee brand needed a modern online presence that felt inviting and memorable.",
+    solution: "Designed a branded showcase site around product presentation and a welcoming visual identity.",
+    result: "A focused digital storefront experience built to make the brand easy to discover.",
+    tags: ["Vercel", "React", "Branding", "Landing Page"],
+    liveUrl: "https://kairo-s-koffee.vercel.app/",
+    image: "https://github.com/GeorgeZa01/Project-Screenshots/blob/main/KAiro'sKoffee-mockup.png?raw=true",
   },
   {
-    title: "PC System Optimization",
-    description:
-      "Comprehensive system diagnostics, malware removal, and performance optimization for enterprise and personal computers across Windows and Linux.",
-    tags: ["Hardware", "Software", "Security"],
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop",
+    title: "Tastes By T",
+    problem: "A hospitality brand needed a stronger online presentation and customer experience.",
+    solution: "Created a branded website that combines visual identity with clear hospitality-focused content.",
+    result: "A polished web presence designed to help customers understand and remember the brand.",
+    tags: ["Vercel", "Branding", "Hospitality Web Design"],
+    liveUrl: "https://www.tastesbyt.co.za/",
+    image: "https://www.tastesbyt.co.za/assets/header.png",
   },
 ];
 
@@ -52,9 +60,7 @@ const item = {
 export function Portfolio() {
   return (
     <SectionWrapper id="portfolio" className="py-24 md:py-32 relative">
-      {/* Background accent */}
       <div className="absolute inset-0 gradient-bg opacity-50" />
-
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -69,9 +75,8 @@ export function Portfolio() {
             Featured <span className="text-gradient">Work</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Hardware repairs, software development, and digital solutions.
-            Each project showcases expertise across PC repairs, console restoration,
-            and full-stack application development.
+            A selection of product utilities, branded experiences, and full-stack systems
+            built to solve practical problems and make businesses easier to use.
           </p>
         </motion.div>
 
@@ -91,6 +96,7 @@ export function Portfolio() {
             >
               {/* Project Image */}
               <div className="aspect-video bg-secondary relative overflow-hidden">
+                <img src={project.image} alt="" className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-500/20" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -104,9 +110,11 @@ export function Portfolio() {
                 <h3 className="text-xl font-display font-semibold text-foreground mb-3">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  {project.description}
-                </p>
+                <div className="space-y-3 mb-5 text-sm leading-relaxed">
+                  <p><span className="font-semibold text-primary">Problem:</span> <span className="text-muted-foreground">{project.problem}</span></p>
+                  <p><span className="font-semibold text-primary">Solution:</span> <span className="text-muted-foreground">{project.solution}</span></p>
+                  <p><span className="font-semibold text-primary">Result:</span> <span className="text-muted-foreground">{project.result}</span></p>
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, i) => (
                     <span
@@ -116,6 +124,16 @@ export function Portfolio() {
                       {tag}
                     </span>
                   ))}
+                </div>
+                <div className="flex flex-wrap items-center gap-4 mt-6">
+                  {project.liveUrl && (
+                    <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        View project
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -130,25 +148,9 @@ export function Portfolio() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center"
         >
-          <p className="text-muted-foreground mb-6">
-            All projects, case studies, and live demonstrations are available at my
-            dedicated portfolio site.
+          <p className="text-muted-foreground">
+            Selected work across product design, branding, and full-stack delivery.
           </p>
-          {/* <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="border-border hover:bg-secondary"
-          >
-            <a
-              href="https://jemaile-portfolio.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Full Portfolio
-              <ExternalLink className="ml-2 h-4 w-4" />
-            </a>
-          </Button> */}
         </motion.div>
       </div>
     </SectionWrapper>

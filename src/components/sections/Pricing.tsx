@@ -8,12 +8,13 @@ const packages = [
     name: "PC Diagnostics",
     price: "R 200",
     period: "One-time Fee",
-    description: "Problem identification and assessment",
+    description: "Problem identification and assessment, credited toward your repair",
     features: [
       "Full System Diagnostics",
       "Performance Analysis",
       "Hardware Status Check",
       "Written Report & Recommendations",
+      "R 200 waived when you proceed with the repair",
     ],
     popular: false,
   },
@@ -27,7 +28,6 @@ const packages = [
       "Virus & Malware Removal",
       "Component Replacement",
       "System Optimization",
-      "3-Month Warranty on Work",
     ],
     popular: true,
   },
@@ -170,7 +170,7 @@ export function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-20 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+          className="mt-20 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
         >
           {/* Branding Services */}
           <div className="glass-card p-6">
@@ -191,6 +191,20 @@ export function Pricing() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div className="glass-card p-6 border-primary/40">
+            <h4 className="text-lg font-display font-semibold text-foreground mb-2">
+              Digital Transformation
+            </h4>
+            <p className="text-sm text-muted-foreground mb-4">
+              A practical launch bundle for small businesses ready to look professional online.
+            </p>
+            <div className="flex items-baseline gap-2 mb-4">
+              <span className="text-2xl font-display font-bold text-foreground">R 3,499</span>
+              <span className="text-sm text-muted-foreground line-through">R 4,397</span>
+            </div>
+            <p className="text-sm text-primary">Logo + Basic SEO + Website</p>
           </div>
 
           {/* SEO & Digital Assets */}
