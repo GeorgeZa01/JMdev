@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowRight, Check, MessageCircle, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
-import heroBg from "@/assets/hero-bg.png";
+import heroBg from "@/assets/hero-bg.webp";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -39,16 +39,13 @@ export function Hero() {
             </span>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          <h1
             className="mb-6 text-[clamp(3.1rem,7vw,5.75rem)] font-display font-semibold leading-[0.98] tracking-[-0.065em]"
           >
             Tech that works.
             <br />
             Ideas that <span className="text-gradient">take off.</span>
-          </motion.h1>
+          </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -127,6 +124,8 @@ export function Hero() {
               <motion.img
                 src={heroBg}
                 alt="Abstract teal and violet digital circuit lines"
+                width={1200}
+                height={675}
                 style={{ scale: backgroundScale }}
                 initial={{ scale: 1.12 }}
                 animate={{ scale: 1 }}

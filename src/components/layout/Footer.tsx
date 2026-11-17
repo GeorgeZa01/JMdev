@@ -22,10 +22,17 @@ export function Footer() {
             © {currentYear} JMdev. PC Repairs • Console Repairs • Web & App Development
           </p>
 
+          <nav aria-label="Service pages" className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
+            <a href="/console-repairs-cape-town" className="transition-colors hover:text-foreground">PS4 & PS5 Repairs</a>
+            <a href="/laptop-pc-repairs-cape-town" className="transition-colors hover:text-foreground">Laptop & PC Repairs</a>
+            <a href="/small-business-websites-cape-town" className="transition-colors hover:text-foreground">Small Business Websites</a>
+          </nav>
+
           {/* Social Links */}
           <div className="flex items-center gap-4">
             <a
               href="https://github.com/georgeza01/"
+              aria-label="JMdev on GitHub"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
@@ -33,7 +40,8 @@ export function Footer() {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com/jemaile-mohamed/"
+              href="https://www.linkedin.com/in/jemaile-mohamed/"
+              aria-label="Jemaile Mohamed on LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
@@ -42,6 +50,7 @@ export function Footer() {
             </a>
             <a
               href="https://instagram.com/jmdev.co.za/"
+              aria-label="JMdev on Instagram"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"

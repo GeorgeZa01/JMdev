@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
+import { trackEvent } from "@/lib/analytics";
 
 export function Contact() {
   const { toast } = useToast();
@@ -36,6 +37,10 @@ export function Contact() {
       });
 
       if (res.ok) {
+        trackEvent("generate_lead", {
+          form: "contact",
+          service: String(formData.get("service") || "not_selected"),
+        });
         toast({
           title: "Message sent!",
           description: "I'll respond within 48 hours.",
@@ -138,7 +143,7 @@ export function Contact() {
                   Service Type
                 </label>
                 <Select name="service">
-                  <SelectTrigger className="bg-secondary/50 border-border focus:border-primary">
+                  <SelectTrigger id="service" aria-label="Service type" className="bg-secondary/50 border-border focus:border-primary">
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
                   <SelectContent>

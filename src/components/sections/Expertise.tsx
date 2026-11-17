@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2, Layers, Zap, Shield } from "lucide-react";
+import { ArrowRight, Code2, Layers, Zap, Shield } from "lucide-react";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 
 const expertiseAreas = [
@@ -8,18 +8,21 @@ const expertiseAreas = [
     title: "PC Repairs & Diagnostics",
     description:
       "Hardware troubleshooting, component repairs, software issues, virus removal, and system optimization for Windows and Linux systems.",
+    href: "/laptop-pc-repairs-cape-town",
   },
   {
     icon: Zap,
     title: "Console Repairs & Restoration",
     description:
       "Expert repairs for PlayStation, Xbox, and Nintendo consoles. Fixes for hardware failures, disc errors, and performance issues.",
+    href: "/console-repairs-cape-town",
   },
   {
     icon: Code2,
     title: "Web & App Development",
     description:
       "React/Next, Node.js, TypeScript — production-grade web applications and mobile apps with modern frameworks and best practices.",
+    href: "/small-business-websites-cape-town",
   },
   {
     icon: Layers,
@@ -92,6 +95,14 @@ export function Expertise() {
                   <p className="text-muted-foreground leading-relaxed">
                     {area.description}
                   </p>
+                  {area.href && (
+                    <a
+                      href={area.href}
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                    >
+                      Explore service <ArrowRight className="h-4 w-4" />
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 import { ExternalLink, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
+import arizeImg from "@/assets/projects/arize.webp";
+import faviconMagicImg from "@/assets/projects/faviconmagic.webp";
+import kairosKoffeeImg from "@/assets/projects/kairos-koffee.webp";
+import tastesByTImg from "@/assets/projects/tastes-by-t.webp";
 
 const projects = [
   {
@@ -11,7 +15,7 @@ const projects = [
     result: "A complete commerce experience backed by Node.js, Express, MySQL, and JavaScript.",
     tags: ["Node.js", "Express.js", "MySQL", "JWT", "REST APIs"],
     liveUrl: "https://arize-e-commerce.vercel.app/",
-    image: "https://github.com/GeorgeZa01/Project-Screenshots/blob/main/arize.png?raw=true",
+    image: arizeImg,
   },
   {
     title: "FaviconMagic Pro",
@@ -20,7 +24,7 @@ const projects = [
     result: "A polished visual tool that turns asset creation into a simpler workflow.",
     tags: ["Vercel", "React", "Frontend UI"],
     liveUrl: "https://favicon-by-jmdev.netlify.app/",
-    image: "https://github.com/GeorgeZa01/Project-Screenshots/blob/main/FaviconMagic.png?raw=true",
+    image: faviconMagicImg,
   },
   {
     title: "Kairo-sKoffee",
@@ -29,7 +33,7 @@ const projects = [
     result: "A focused digital storefront experience built to make the brand easy to discover.",
     tags: ["Vercel", "React", "Branding", "Landing Page"],
     liveUrl: "https://kairo-s-koffee.vercel.app/",
-    image: "https://github.com/GeorgeZa01/Project-Screenshots/blob/main/KAiro'sKoffee-mockup.png?raw=true",
+    image: kairosKoffeeImg,
   },
   {
     title: "Tastes By T",
@@ -38,7 +42,7 @@ const projects = [
     result: "A polished web presence designed to help customers understand and remember the brand.",
     tags: ["Vercel", "Branding", "Hospitality Web Design"],
     liveUrl: "https://www.tastesbyt.co.za/",
-    image: "https://www.tastesbyt.co.za/assets/header.png",
+    image: tastesByTImg,
   },
 ];
 
@@ -96,7 +100,7 @@ export function Portfolio() {
             >
               {/* Project Image */}
               <div className="aspect-video bg-secondary relative overflow-hidden">
-                <img src={project.image} alt="" className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" />
+                <img src={project.image} alt={`Screenshot of ${project.title}`} loading="lazy" decoding="async" width={960} height={540} className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-500/20" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
