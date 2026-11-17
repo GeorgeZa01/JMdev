@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "/#about", label: "About" },
-  { href: "/#expertise", label: "Expertise" },
+  { href: "/#expertise", label: "Services" },
   { href: "/#pricing", label: "Pricing" },
-  { href: "/#portfolio", label: "Portfolio" },
+  { href: "/#portfolio", label: "Work" },
   // { href: "/shop", label: "Shop" },
 ];
 
@@ -27,20 +27,20 @@ export function Header() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50"
-          : "bg-transparent"
+          ? "border-b border-border/60 bg-background/85 shadow-[0_8px_32px_-20px_rgba(0,0,0,0.8)] backdrop-blur-2xl"
+          : "bg-background/35 backdrop-blur-lg"
       }`}
     >
       <div className="container mx-auto px-6">
-          <nav aria-label="Primary navigation" className="flex items-center justify-between h-20">
+        <nav aria-label="Primary navigation" className="flex h-[76px] items-center justify-between">
           {/* Logo */}
-            <a href="/" aria-label="Home" className="flex items-center gap-1">
+          <a href="/" aria-label="JMdev home" className="group flex items-center gap-1">
             <span className="text-2xl font-display font-bold text-foreground">
               JM
             </span>
-            <span className="text-2xl font-display font-bold text-primary">
+            <span className="text-2xl font-display font-bold text-primary transition-colors group-hover:text-primary/80">
               dev
             </span>
           </a>
@@ -51,7 +51,7 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                className="group relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -61,18 +61,18 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button
-              asChild
-              className="btn-glow bg-primary text-primary-foreground hover:bg-primary/90"
-            >
+            <Button asChild className="btn-glow bg-primary text-primary-foreground hover:bg-primary/90">
               <a href="/#contact">Contact Me</a>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
+            type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-foreground"
+            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMobileMenuOpen}
+            className="rounded-lg p-2 text-foreground transition-colors hover:bg-secondary md:hidden"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -94,7 +94,7 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {link.label}
                 </a>
@@ -103,7 +103,7 @@ export function Header() {
                 asChild
                 className="btn-glow bg-primary text-primary-foreground hover:bg-primary/90 mt-4"
               >
-                <a href="/#contact">Contact Me</a>
+                <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Me</a>
               </Button>
             </div>
           </motion.div>

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+import { ArrowUpRight, Quote, Star } from "lucide-react";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
+import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
@@ -122,6 +123,38 @@ export function Testimonials() {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="glass-card mx-auto mt-10 flex max-w-6xl flex-col items-start justify-between gap-6 p-6 sm:flex-row sm:items-center sm:p-8"
+        >
+          <div className="flex items-start gap-4">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <Star className="h-5 w-5" />
+            </span>
+            <div>
+              <h3 className="font-display text-lg font-semibold text-foreground">
+                Worked with JMdev?
+              </h3>
+              <p className="mt-1 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                Share an honest review on Google. Your feedback helps others find the right tech support.
+              </p>
+            </div>
+          </div>
+          <Button asChild className="btn-glow shrink-0 bg-primary text-primary-foreground hover:bg-primary/90">
+            <a
+              href="https://g.page/r/CXhxD0qOb3UHEBM/review"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Leave a Google review
+              <ArrowUpRight className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
         </motion.div>
       </div>
     </SectionWrapper>
